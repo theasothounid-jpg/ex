@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple JS Calculator</title>
+    <style>
+        body {
+            font-family: 'Khmer OS Siemreap', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Small Calculator</h2>
+
+    <label for="txtnum1">តម្លៃទី១:</label>
+    <input type="number" id="txtnum1" value="0"><br>
+
+    <label for="txtnum2">តម្លៃទី២:</label>
+    <input type="number" id="txtnum2" value="0"><br>
+
+    <input type="button" value="+" onclick="sum()">
+    <input type="button" value="-" onclick="minus()">
+    <input type="button" value="*" onclick="multiplication()">
+    <input type="button" value="\" onclick="devide()">
+    <br>
+
+    <label for="txtresult">លទ្ធផល:</label>
+    <input type="text" id="txtresult" readonly disabled>
+
+    <script>
+        // Use consistent English variable names for HTML elements
+        var num1Input = document.getElementById("txtnum1");
+        var num2Input = document.getElementById("txtnum2");
+        var resultInput = document.getElementById("txtresult");
+
+        // The original code had two conflicting 'sum' functions and used undefined variables (num1, num2)
+        // I have corrected the variables to use the ones defined above (num1Input, num2Input)
+        // and added the missing 'minus' function.
+
+        function sum() {
+            try {
+                // Get the value, convert it to a number, and calculate the sum
+                var num1 = Number(num1Input.value);
+                var num2 = Number(num2Input.value);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    throw new Error("Invalid number input.");
+                }
+
+                resultInput.value = num1 + num2;
+            } catch (err) {
+                alert("Error in sum: " + err.message);
+            }
+        }
+
+        function minus() {
+            try {
+                // Get the value, convert it to a number, and calculate the difference
+                var num1 = Number(num1Input.value);
+                var num2 = Number(num2Input.value);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    throw new Error("Invalid number input.");
+                }
+
+                resultInput.value = num1 - num2;
+            } catch (err) {
+                alert("Error in minus: " + err.message);
+            }
+        }
+
+        function multiplication() {
+            try {
+                // Get the value, convert it to a number, and calculate the difference
+                var num1 = Number(num1Input.value);
+                var num2 = Number(num2Input.value);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    throw new Error("Invalid number input.");
+                }
+
+                resultInput.value = num1 * num2;
+            } catch (err) {
+                alert("Error in multiplication: " + err.message);
+            }
+        }
+
+        function divide() {
+            try {
+                // Get the value, convert it to a number, and calculate the difference
+                var num1 = Number(num1Input.value);
+                var num2 = Number(num2Input.value);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    throw new Error("Invalid number input.");
+                }
+
+                resultInput.value = num1 / num2;
+            } catch (err) {
+                alert("Error in divide: " + err.message);
+            }
+        }
+    </script>
+
+
+
+    <p>The price of programing:</p>
+    <input type="Checkbox" value="2000" name="mychoise">$2000 for java Programing<br>
+    <input type="Checkbox" value="1800" name="mychoise">$1800 for C Programing<br>
+    <input type="Checkbox" value="1600" name="mychoise">$1600 for CSS Programing<br>
+    <input type="Checkbox" value="1400" name="mychoise">$1400 for javascript Programing<br>
+    <input type="Checkbox" value="2400" name="mychoise">$2400 for HTML Programing<br><br>
+    <input type="button" value="Total price" onclick="fnDatacalculation()">
+    <script>
+        function fnDatacalculation() {
+            var sum = 0;
+            var obj = document.getElementsByName("mychoise");
+            for (var i = 0; i < obj.length; i++) {
+                if (!obj[i].checked) continue;
+                sum += parseFloat(obj[i].value);
+            }
+            alert("Total price: $" + sum);
+        }
+    </script>
+</body>
+
+</html>
